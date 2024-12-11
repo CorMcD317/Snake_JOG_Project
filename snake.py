@@ -138,16 +138,15 @@ def check_game_over():
     global body_coords
     global running
     global is_paused
-    # TODO: if head_rect.left is negative or head_rect.right is greater than WINDOW_WIDTH or head_rect.top is negative or head_rect.bottom is greater than WINDOW_HEIGHT
-    # or head_coord in body_coords
-    display_surface.blit(game_over_text, game_over_rect)
-    display_surface.blit(continue_text, continue_rect)
-    pygame.display.update()
-    set.is_paused == True
-    while is_paused:
-        for event in pygame.event.get():
-            reset_game_after_game_over(event)
-            check_end_game_after_game_over(event)
+    if head_rect.left < 0 or head_rect.right > WINDOW_WIDTH or head_rect.top < 0 or head_rect.bottom > WINDOW_HEIGHT or head_coord in body_coords:
+        display_surface.blit(game_over_text, game_over_rect)
+        display_surface.blit(continue_text, continue_rect)
+        pygame.display.update()
+        is_paused = True
+        while is_paused:
+            for event in pygame.event.get():
+                reset_game_after_game_over(event)
+                check_end_game_after_game_over(event)
 
 
 def check_collisions():
