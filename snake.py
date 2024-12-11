@@ -90,7 +90,7 @@ def move_snake(event):
 def check_quit(event):
     global running
     if event.type == pygame.quit:
-        running == False
+        running = False
 
 
 def check_events():
@@ -105,6 +105,8 @@ def handle_snake():
     global head_x
     global head_y
     global head_coord
+    global snake_dx
+    global snake_dy
     body_coords.insert(0, head_coord)
     body_coords.pop()
     snake_dx + head_x
@@ -128,8 +130,8 @@ def check_end_game_after_game_over(event):
     global is_paused
     global running
     if event.type == pygame.quit:
-        set.is_paused == False
-        set.running == False
+        set.is_paused = False
+        set.running = False
 
 
 def check_game_over():
