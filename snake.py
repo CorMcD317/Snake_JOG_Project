@@ -198,7 +198,7 @@ while running:
     # Fill the surface
     display_surface.fill(WHITE)
 
-    # Blit HUDe
+    # Blit HUD
     blit_hud()
 
     # Blit assets
